@@ -7,8 +7,9 @@ function App() {
   const [photoOfDay, setPhotoOfDay] = useState([])
 
   useEffect(() => {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=9wdEwYqMkvXYxA0Z3ub77SSdhkslbl6eVKEcDj60`)
-    // .then(res => console.log(res))
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=9wdEwYqMkvXYxA0Z3ub77SSdhkslbl6eVKEcDj6O`)
+    // .then(res => {
+    //   console.log(res)
     .then(res => {
       setPhotoOfDay(res.data.url)
     })
@@ -19,16 +20,15 @@ function App() {
       <br></br>
       <Header>NASA Photo of the Day!</Header>
       <Image src={photoOfDay} alt='NASA APOD' />
-      
-      <p>
+      <Para>
         To the moon <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      </Para>
     </Container>
   );
 }
 
 const Container = styled.div`
-background-color: lightGrey
+background-color: bisque
 `
 
 const Header = styled.h1`
@@ -36,7 +36,11 @@ color: crimson
 `
 
 const Image = styled.img`
-border: black solid 2px
+border: crimson solid 2px
+`
+
+const Para = styled.p`
+font-size: 2rem
 `
 
 export default App;
